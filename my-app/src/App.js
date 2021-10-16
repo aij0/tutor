@@ -1,25 +1,26 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import Tutor from './components/tutor';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component{
+  render() {
+    const tutor = {
+        "id": 1,
+        "name": "Mikko MOuru",
+        "subject": "CAD",
+        "imageUrl": "https://raw.githubusercontent.com/aij0/tutor-data/main/pictures/2.png",
+        "price": 9990,
+        "priceCurrency": "EUR",
+        "lat": 60.1675,
+        "lng": 24.9311
+    };
+
+    return (
+      <div>
+        <Tutor tutor={tutor} />
+      </div>
+    );
+  }
 }
 
 export default App;

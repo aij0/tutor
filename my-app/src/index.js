@@ -2,16 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Hello from './components/hello';
 import reportWebVitals from './reportWebVitals';
 
-const root = <div>
-  <Hello firstName="Joonas" lastName="Aijala"></Hello>
-  <Hello firstName="Test" lastName="Person"></Hello>
-</div>;
-
 ReactDOM.render(
-  root,
+  <App />,
   document.getElementById('root')
 );
 
