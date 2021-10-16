@@ -5,10 +5,13 @@ import App from './App';
 import Hello from './components/hello';
 import reportWebVitals from './reportWebVitals';
 
+const root = <div>
+  <Hello firstName="Joonas" lastName="Aijala"></Hello>
+  <Hello firstName="Test" lastName="Person"></Hello>
+</div>;
+
 ReactDOM.render(
-  <React.StrictMode>
-    <Hello name="Joonas"/>
-  </React.StrictMode>,
+  root,
   document.getElementById('root')
 );
 
