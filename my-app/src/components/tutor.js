@@ -8,6 +8,11 @@ import "./tutor.css";
 <Tutor tutor={tutor} /> */
 
 class Tutor extends React.Component{
+    handleClick = () => {
+        // call parent method selectTutor
+        this.props.selectTutor(this.props.tutor);
+    }
+
     render(){
         const title = this.props.tutor.subject + " - " + this.props.tutor.price + this.props.tutor.priceCurrency
         + " - " + this.props.tutor.name;
@@ -17,7 +22,7 @@ class Tutor extends React.Component{
         };
 
         return (
-            <div className="tutor">
+            <div className="tutor" onClick={this.handleClick}>
                 <div className="tutor-picture" style={style}></div>
                 <div className="tutor-title">
                     {title}

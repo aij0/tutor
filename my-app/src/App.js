@@ -8,7 +8,8 @@ class App extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      tutors: []
+      tutors: [],
+      selectedTutor: null
     };
   }
 
@@ -20,6 +21,13 @@ class App extends Component{
       this.setState({
         tutors: data
       });
+    })
+  }
+
+  selectTutor = (tutor) => {
+    console.log(tutor);
+    this.setState({
+      selectedTutor: tutor
     })
   }
 
@@ -35,8 +43,11 @@ class App extends Component{
           <div className="search">
           </div>
           <div className="tutors">
-            {this.state.tutors.map(function(tutor) {
-              return <Tutor key={tutor.name} tutor={tutor} />
+            {this.state.tutors.map((tutor) => {
+              return <Tutor
+               key={tutor.name}
+               tutor={tutor}
+               selectTutor={this.selectTutor}/>
             })}
           </div>
         </div>
