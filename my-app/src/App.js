@@ -9,6 +9,7 @@ class App extends Component{
     super(props);
     this.state = {
       tutors: [],
+      allTutors: [],
       selectedTutor: null,
       search: ""
     };
@@ -20,7 +21,8 @@ class App extends Component{
     .then(response => response.json())
     .then( (data) => {
       this.setState({
-        tutors: data
+        tutors: data,
+        allTutors: data
       });
     })
   }
@@ -35,7 +37,7 @@ class App extends Component{
   handleSearch = (event) => {
     this.setState({
       search: event.target.value,
-      tutor: []
+      tutors: this.state.allTutors.filter((tutor) => new RegExp(event.target.value, "i").exec(tutor.subject))
     });
   }
 
