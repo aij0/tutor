@@ -15,9 +15,21 @@ class App extends Component{
         "lng": 24.9311
     };
 
+    const tutors = [ tutor, tutor, tutor];
+
     return (
-      <div>
-        <Tutor tutor={tutor} />
+      <div className="app">
+        <div className="main">
+          <div className="search">
+          </div>
+          <div className="tutors">
+            {tutors.map(function(tutor) {
+              return <Tutor tutor={tutor} />
+            })}
+          </div>
+        </div>
+        <div className="map">
+        </div>
       </div>
     );
   }
