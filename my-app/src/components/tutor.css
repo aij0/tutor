@@ -1,5 +1,7 @@
 .tutor{
-
+    /* 50% and 10px per side */
+ flex-basis: calc(50% - 20px);
+ margin: 10px;
 }
 
 .tutor-picture {
