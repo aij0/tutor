@@ -9,7 +9,8 @@ class App extends Component{
     super(props);
     this.state = {
       tutors: [],
-      selectedTutor: null
+      selectedTutor: null,
+      search: ""
     };
   }
 
@@ -31,6 +32,13 @@ class App extends Component{
     })
   }
 
+  handleSearch = (event) => {
+    this.setState({
+      search: event.target.value,
+      tutor: []
+    });
+  }
+
   render() {
     let center = {
       lat: 60.1699,
@@ -48,6 +56,11 @@ class App extends Component{
       <div className="app">
         <div className="main">
           <div className="search">
+            <input
+              type="text"
+              placeholder="Search..."
+              value={this.state.search}
+              onChange={this.handleSearch} />
           </div>
           <div className="tutors">
             {this.state.tutors.map((tutor) => {
