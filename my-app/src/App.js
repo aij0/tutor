@@ -32,9 +32,16 @@ class App extends Component{
   }
 
   render() {
-    const center = {
+    let center = {
       lat: 60.1699,
       lng: 24.9384
+    }
+    // center based on clicked tutor
+    if (this.state.selectedTutor) {
+      center = {
+        lat: this.state.selectedTutor.lat,
+        lng: this.state.selectedTutor.lng
+      }
     }
 
     return (
@@ -53,9 +60,13 @@ class App extends Component{
         </div>
         <div className="map">
           <GoogleMapReact center={center} zoom={13}>
-            {this.state.tutors.map(function(tutor) {
-                  return <Marker key={tutor.name} lat={tutor.lat} lng={tutor.lng}
-                  text={tutor.price} />
+            {this.state.tutors.map((tutor) => {
+                  return <Marker 
+                    key={tutor.name} 
+                    lat={tutor.lat} 
+                    lng={tutor.lng}
+                    text={tutor.price}
+                    selected={tutor === this.state.selectedTutor} />
                 })}  
         </GoogleMapReact> 
         </div>
