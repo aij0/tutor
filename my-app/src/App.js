@@ -3,27 +3,30 @@ import './App.css';
 import Tutor from './components/tutor';
 
 class App extends Component{
-  render() {
-    const tutor = {
-        "id": 1,
-        "name": "Mikko MOuru",
-        "subject": "CAD",
-        "imageUrl": "https://raw.githubusercontent.com/aij0/tutor-data/main/pictures/2.png",
-        "price": 9990,
-        "priceCurrency": "EUR",
-        "lat": 60.1675,
-        "lng": 24.9311
+  constructor(props) {
+    super(props);
+    this.state = {
+      tutors: []
     };
+  }
 
-    const tutors = [ tutor, tutor, tutor];
+  componentDidMount() {
+    const url = "https://raw.githubusercontent.com/aij0/tutor-data/main/tutors.json";
+    fetch(url)
+    .then(response => response.json())
+    .then( (data) => {
+      console.log(data);
+    })
+  }
 
+  render() {
     return (
       <div className="app">
         <div className="main">
           <div className="search">
           </div>
           <div className="tutors">
-            {tutors.map(function(tutor) {
+            {this.state.tutors.map(function(tutor) {
               return <Tutor tutor={tutor} />
             })}
           </div>
