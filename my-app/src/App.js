@@ -36,14 +36,14 @@ class App extends Component{
           </div>
           <div className="tutors">
             {this.state.tutors.map(function(tutor) {
-              return <Tutor tutor={tutor} />
+              return <Tutor key={tutor.name} tutor={tutor} />
             })}
           </div>
         </div>
         <div className="map">
           <GoogleMapReact center={center} zoom={13}>
             {this.state.tutors.map(function(tutor) {
-                  return <Marker lat={tutor.lat} lng={tutor.lng}
+                  return <Marker key={tutor.name} lat={tutor.lat} lng={tutor.lng}
                   text={tutor.price} />
                 })}  
         </GoogleMapReact> 
